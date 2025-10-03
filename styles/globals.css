@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .header a {
@@ -36,6 +37,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 1rem;
 }
 
 .start-screen h1 {
@@ -44,22 +47,54 @@ body {
 }
 
 .start-screen button {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
   border: 2px solid white;
   background: transparent;
   color: white;
   cursor: pointer;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 300px;
 }
 
 .main-content {
   padding: 1rem;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .share-link {
   display: block;
   margin-top: 1rem;
   text-align: center;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+li {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
