@@ -10,11 +10,11 @@ export default function Home() {
 
   return (
     <div className={darkMode ? 'dark' : 'light'}>
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      {started && <Header darkMode={darkMode} setDarkMode={setDarkMode} />}
       {!started ? (
         <div className="start-screen">
           <h1>Token Info</h1>
-          <button onClick={() => setStarted(true)}>GO</button>
+          <button className="go-button" onClick={() => setStarted(true)}>GO</button>
         </div>
       ) : (
         <main className="main-content">
