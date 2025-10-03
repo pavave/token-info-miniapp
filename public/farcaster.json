@@ -7,7 +7,7 @@
   "miniapp": {
     "id": "token-info",
     "name": "Token Info",
-    "description": "📈 Review of token prices, charts shared with Farcaster",
+    "description": "📈 Review token prices, view charts, and share insights via Farcaster",
     "icon": "/icon.png",
     "screenshot": "/screenshot.png",
     "developer": "pavave",
