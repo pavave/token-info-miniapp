@@ -13,6 +13,10 @@ export default async function handler(req, res) {
     `https://api.coingecko.com/api/v3/coins/${token}/market_chart?vs_currency=usd&days=7`
   ).then((r) => r.json());
 
+  if (!history || !history.prices || !Array.isArray(history.prices)) {
+    return res.status(500).json({ error: 'Chart data not available' });
+  }
+
   const chart = {
     labels: history.prices.map((p: any) => new Date(p[0]).toLocaleDateString()),
     datasets: [
@@ -34,4 +38,3 @@ export default async function handler(req, res) {
 
   res.status(200).json(result);
 }
-
