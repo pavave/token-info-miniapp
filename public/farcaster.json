@@ -1,8 +1,8 @@
 {
   "accountAssociation": {
-    "header": "Paste your header here",
-    "payload": "Paste your payload here",
-    "signature": "Paste your signature here"
+    "header": "",
+    "payload": "",
+    "signature": ""
   },
   "miniapp": {
     "id": "token-info",
