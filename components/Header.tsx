@@ -4,7 +4,7 @@ export default function Header({ darkMode, setDarkMode }: any) {
       <h2>Token Info</h2>
       <div className="header-right">
         <a href="https://x.com/pavavalera" target="_blank" rel="noopener noreferrer">
-          Підписатися на X
+          Follow X
         </a>
         <button onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? '🌞' : '🌙'}
