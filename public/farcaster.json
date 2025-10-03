@@ -4,9 +4,6 @@
     "payload": "eyJkb21haW4iOiJ0b2tlbi1pbmZvLW1pbmlhcHAudmVyY2VsLmFwcCJ9",
     "signature": "MHg4MTFlNDRhMWEwMTgwNTk5NzA4MmExMzE3NmI1ZTQzZmM3MTU0NjcyYTJlZDc5OGYzMTZjZjU3NzUxOTJlMGY4NGQ4ZTE0MWRkYjFiZmVlNjZkMzRlZWQ3NDQ1MDg5NTUwZjY0YTFhMDU0YzY1MGMxYTM0ZWMzZGQzYjNiNjk5ZjFj"
   },
-  "baseBuilder": {
-    "allowedAddresses": ["0x55d2a05b17167cDB5084Eecb7895B277383821b6"]
-  },
   "miniapp": {
     "version": "1",
     "id": "token-info",
