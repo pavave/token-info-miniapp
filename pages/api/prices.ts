@@ -1,10 +1,11 @@
 import { getCached, setCached } from '../../lib/cache';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const token = req.query.token?.toString().toLowerCase() || 'ethereum';
 
   const cached = getCached(token);
-  if (cached) return res.status(200).json(cached);
+  if (cached) return res.status(200).json(cached); // ❌ не закриваємо функцію тут
 
   const response = await fetch(`https://api.coingecko.com/api/v3/coins/${token}`);
   const data = await response.json();
