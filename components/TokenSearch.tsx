@@ -12,7 +12,7 @@ export default function TokenSearch({ onSelect }: { onSelect: (id: string) => vo
   }, [query]);
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
       <input
         type="text"
         placeholder="🔍 Введи токен (ETH, BTC...)"
@@ -22,11 +22,11 @@ export default function TokenSearch({ onSelect }: { onSelect: (id: string) => vo
       <ul>
         {results.map((token) => (
           <li key={token.id} onClick={() => onSelect(token.id)}>
-            <img src={token.thumb} alt={token.symbol} width={20} /> {token.name} ({token.symbol})
+            <img src={token.thumb} alt={token.symbol} width={20} height={20} />{' '}
+            {token.name} ({token.symbol})
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
