@@ -9,7 +9,7 @@
   },
   "miniapp": {
     "version": "2",
-    "id": "token-info",
+    "id": "token-info-v2",
     "name": "Token Info",
     "subtitle": "Track token prices and charts",
     "tagline": "Fast, simple, shareable",
