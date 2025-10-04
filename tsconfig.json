@@ -3,12 +3,18 @@
     "target": "es6",
     "lib": ["dom", "esnext"],
     "module": "esnext",
-    "jsx": "preserve",
+    "jsx": "react",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
     "baseUrl": ".",
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
