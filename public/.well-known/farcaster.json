@@ -8,7 +8,7 @@
     "allowedAddresses": ["0x55d2a05b17167cDB5084Eecb7895B277383821b6"]
   },
   "miniapp": {
-    "version": "1",
+    "version": "2",
     "id": "token-info",
     "name": "Token Info",
     "subtitle": "Track token prices and charts",
@@ -39,7 +39,7 @@
     "version": "1",
     "iconUrl": "https://token-info-miniapp.vercel.app/icon.png",
     "homeUrl": "https://token-info-miniapp.vercel.app",
-    "imageUrl": "https://token-info-miniapp.vercel.app/screenshot.png",
+    "imageUrl": "https://token-info-miniapp.vercel.app/icon.png",
     "splashImageUrl": "https://token-info-miniapp.vercel.app/screenshot.png",
     "splashBackgroundColor": "#1e3a8a",
     "subtitle": "Track token prices in real time",
