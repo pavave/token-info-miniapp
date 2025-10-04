@@ -22,7 +22,7 @@ export default function Home() {
           {selectedToken && <PriceChart token={selectedToken} />}
           {selectedToken && (
             <a
-              href={`https://warpcast.com/~/compose?text=Token price ${selectedToken.toUpperCase()} now!&embeds[]=https://token-info-miniapp.vercel.app/?token=eth`}
+              href={`https://warpcast.com/~/compose?text=Token price ${selectedToken.toUpperCase()} now!&embeds[]=https://token-info-miniapp.vercel.app/?token=${selectedToken}`}
               target="_blank"
               rel="noopener noreferrer"
               className="share-link"
