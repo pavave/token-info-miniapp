@@ -9,7 +9,7 @@ export default function Home() {
   const [selectedToken, setSelectedToken] = useState<string | null>(null);
   const [darkMode, setDarkMode] = useState(false);
 
-  // Optional: auto-start if token is in URL
+  // Автостарт при ?token=...
   useEffect(() => {
     const tokenFromUrl = new URLSearchParams(window.location.search).get('token');
     if (tokenFromUrl) {
@@ -27,7 +27,7 @@ export default function Home() {
           <>
             <meta property="og:title" content={`Token price ${selectedToken.toUpperCase()} now!`} />
             <meta property="og:description" content={`Live price and chart for ${selectedToken.toUpperCase()}`} />
-            <meta property="og:image" content={`https://token-info-miniapp.vercel.app/screenshot.png`} />
+            <meta property="og:image" content={`https://token-info-miniapp.vercel.app/api/og/${selectedToken}.png`} />
             <meta property="og:url" content={`https://token-info-miniapp.vercel.app/?token=${selectedToken}`} />
           </>
         )}
