@@ -33,5 +33,21 @@
       "primary": "#1e3a8a"
     },
     "noindex": false
+  },
+  "frame": {
+    "name": "Token Info",
+    "version": "1",
+    "iconUrl": "https://token-info-miniapp.vercel.app/icon.png",
+    "homeUrl": "https://token-info-miniapp.vercel.app",
+    "imageUrl": "https://token-info-miniapp.vercel.app/screenshot.png",
+    "splashImageUrl": "https://token-info-miniapp.vercel.app/screenshot.png",
+    "splashBackgroundColor": "#1e3a8a",
+    "subtitle": "Track token prices in real time",
+    "description": "Track Ethereum and other token prices in real time. View charts, share insights, and stay ahead.",
+    "primaryCategory": "finance",
+    "screenshotUrls": [
+      "https://token-info-miniapp.vercel.app/screenshot.png"
+    ],
+    "heroImageUrl": "https://token-info-miniapp.vercel.app/icon.png"
   }
 }
