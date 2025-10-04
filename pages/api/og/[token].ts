@@ -7,7 +7,6 @@ export const config = {
 };
 
 export default async function handler(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
   const token = req.nextUrl.pathname.split('/').pop() || 'eth';
 
   const res = await fetch(`https://token-info-miniapp.vercel.app/api/prices?token=${token}`);
@@ -27,6 +26,7 @@ export default async function handler(req: NextRequest) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
           padding: '50px',
           fontFamily: 'sans-serif',
         }}
