@@ -8,8 +8,8 @@
     "allowedAddresses": ["0x55d2a05b17167cDB5084Eecb7895B277383821b6"]
   },
   "miniapp": {
-    "version": "2",
-    "id": "token-info-v2",
+    "version": "1",
+    "id": "token-info",
     "name": "Token Info",
     "subtitle": "Track token prices and charts",
     "tagline": "Fast, simple, shareable",
