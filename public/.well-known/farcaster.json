@@ -13,7 +13,7 @@
     "name": "Token Info",
     "subtitle": "Track token prices and charts",
     "tagline": "Fast, simple, shareable",
-    "description": "📈 Review token prices, view charts, and share insights via Farcaster",
+    "description": "Review token prices, view charts, and share insights via Farcaster",
     "developer": "pavave",
     "website": "https://token-info-miniapp.vercel.app",
     "homeUrl": "https://token-info-miniapp.vercel.app",
