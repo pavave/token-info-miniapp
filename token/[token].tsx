@@ -1,11 +1,18 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
 
-export default function TokenPage() {
-  const router = useRouter();
-  const { token } = router.query;
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const token = params?.token?.toString() || 'eth';
 
-  const tokenName = typeof token === 'string' ? token.toUpperCase() : 'TOKEN';
+  return {
+    props: {
+      token,
+    },
+  };
+};
+
+export default function TokenPage({ token }: { token: string }) {
+  const tokenName = token.toUpperCase();
 
   return (
     <>
