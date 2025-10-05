@@ -18,31 +18,19 @@ export default function Home() {
     }
   }, []);
 
-  const ogImageUrl = selectedToken
-    ? `https://token-info-miniapp.vercel.app/api/og/${selectedToken}.png?v=${Date.now()}`
-    : `https://token-info-miniapp.vercel.app/screenshot.png`;
-
-  const ogUrl = selectedToken
-    ? `https://token-info-miniapp.vercel.app/?token=${selectedToken}`
-    : `https://token-info-miniapp.vercel.app`;
-
-  const ogTitle = selectedToken
+  const pageTitle = selectedToken
     ? `Token price ${selectedToken.toUpperCase()} now!`
     : 'Token Info — Live crypto prices';
 
-  const ogDescription = selectedToken
+  const pageDescription = selectedToken
     ? `Live price and chart for ${selectedToken.toUpperCase()}`
     : 'Track token prices and charts in real time.';
 
   return (
     <div className={darkMode ? 'dark' : 'light'}>
       <Head>
-        <title>{ogTitle}</title>
-        <meta name="description" content={ogDescription} />
-        <meta property="og:title" content={ogTitle} />
-        <meta property="og:description" content={ogDescription} />
-        <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:url" content={ogUrl} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
       </Head>
 
       {started && <Header darkMode={darkMode} setDarkMode={setDarkMode} />}
@@ -56,14 +44,15 @@ export default function Home() {
           <TokenSearch onSelect={setSelectedToken} />
           {selectedToken && <PriceChart token={selectedToken} />}
           {selectedToken && (
-            <a
-              href={`https://warpcast.com/~/compose?text=Token price ${selectedToken.toUpperCase()} now!&embeds[]=https://token-info-miniapp.vercel.app/token/${selectedToken}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="share-link"
-            >
-              📣 Share on Farcaster
-            </a>
+            <p style={{ marginTop: '1rem' }}>
+              🔗 <a
+                href={`https://token-info-miniapp.vercel.app/token/${selectedToken}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Перейти до токена {selectedToken.toUpperCase()}
+              </a>
+            </p>
           )}
         </main>
       )}
