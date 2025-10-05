@@ -16,28 +16,26 @@ export default async function handler(req: NextRequest) {
   const marketCap = json?.meta?.marketCap?.toLocaleString() || 'N/A';
 
   return new ImageResponse(
-    React.createElement(
-      'div',
-      {
-        style: {
+    (
+      <div
+        style={{
           backgroundColor: '#1e3a8a',
           color: 'white',
-          width: '1200px',
-          height: '630px',
+          width: '100%',
+          height: '100%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           fontFamily: 'Arial, sans-serif',
           padding: '40px',
-        },
-      },
-      [
-        React.createElement('h1', { style: { fontSize: 64, margin: 0 } }, token.toUpperCase()),
-        React.createElement('p', { style: { fontSize: 48, margin: '20px 0' } }, `📈 $${price}`),
-        React.createElement('p', { style: { fontSize: 36, margin: '10px 0' } }, `💰 Market Cap: $${marketCap}`),
-        React.createElement('p', { style: { fontSize: 24, marginTop: 40 } }, 'token-info-miniapp.vercel.app'),
-      ]
+        }}
+      >
+        <h1 style={{ fontSize: 64, margin: 0 }}>{token.toUpperCase()}</h1>
+        <p style={{ fontSize: 48, margin: '20px 0' }}>📈 ${price}</p>
+        <p style={{ fontSize: 36, margin: '10px 0' }}>💰 Market Cap: ${marketCap}</p>
+        <p style={{ fontSize: 24, marginTop: 40 }}>token-info-miniapp.vercel.app</p>
+      </div>
     ),
     {
       width: 1200,
