@@ -44,7 +44,6 @@ export default async function handler(req: NextRequest) {
           padding: '40px',
         }}
       >
-        {/* Логотип тимчасово вимкнено для стабільного білду */}
         /*<h1 style={{ fontSize: 64 }}>{symbol}</h1>
         <p style={{ fontSize: 48 }}>📈 ${price}</p>
         <p style={{ fontSize: 36 }}>💰 Market Cap: ${marketCap}</p>
