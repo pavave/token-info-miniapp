@@ -1,4 +1,4 @@
-import { ImageResponse } from '@vercel/og';
+/*import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
 
 export const config = {
@@ -45,7 +45,7 @@ export default async function handler(req: NextRequest) {
         }}
       >
         {/* Логотип тимчасово вимкнено для стабільного білду */}
-        <h1 style={{ fontSize: 64 }}>{symbol}</h1>
+        /*<h1 style={{ fontSize: 64 }}>{symbol}</h1>
         <p style={{ fontSize: 48 }}>📈 ${price}</p>
         <p style={{ fontSize: 36 }}>💰 Market Cap: ${marketCap}</p>
         <p style={{ fontSize: 24, marginTop: 40 }}>token-info-miniapp.vercel.app</p>
@@ -56,4 +56,4 @@ export default async function handler(req: NextRequest) {
       height: 630,
     }
   );
-}
+}*/
