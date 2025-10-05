@@ -16,9 +16,10 @@ export default async function handler(req: NextRequest) {
   const marketCap = json?.meta?.marketCap?.toLocaleString() || 'N/A';
 
   return new ImageResponse(
-    (
-      <div
-        style={{
+    React.createElement(
+      'div',
+      {
+        style: {
           background: '#1e3a8a',
           color: 'white',
           width: '100%',
@@ -29,13 +30,14 @@ export default async function handler(req: NextRequest) {
           alignItems: 'center',
           padding: '50px',
           fontFamily: 'sans-serif',
-        }}
-      >
-        <h1 style={{ fontSize: 60 }}>{token.toUpperCase()}</h1>
-        <p style={{ fontSize: 40 }}>📈 ${price}</p>
-        <p style={{ fontSize: 30 }}>💰 Market Cap: ${marketCap}</p>
-        <p style={{ fontSize: 24, marginTop: 40 }}>token-info-miniapp.vercel.app</p>
-      </div>
+        },
+      },
+      [
+        React.createElement('h1', { style: { fontSize: 60 } }, token.toUpperCase()),
+        React.createElement('p', { style: { fontSize: 40 } }, `📈 $${price}`),
+        React.createElement('p', { style: { fontSize: 30 } }, `💰 Market Cap: $${marketCap}`),
+        React.createElement('p', { style: { fontSize: 24, marginTop: 40 } }, 'token-info-miniapp.vercel.app'),
+      ]
     ),
     {
       width: 1200,
