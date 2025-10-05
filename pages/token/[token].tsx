@@ -3,12 +3,7 @@ import { GetServerSideProps } from 'next';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const token = params?.token?.toString() || 'eth';
-
-  return {
-    props: {
-      token,
-    },
-  };
+  return { props: { token } };
 };
 
 export default function TokenPage({ token }: { token: string }) {
@@ -24,7 +19,6 @@ export default function TokenPage({ token }: { token: string }) {
         <meta property="og:image" content={`https://token-info-miniapp.vercel.app/api/og/${token}.png`} />
         <meta property="og:url" content={`https://token-info-miniapp.vercel.app/token/${token}`} />
       </Head>
-
       <main>
         <h1>{tokenName}</h1>
         <p>Redirecting to main app...</p>
