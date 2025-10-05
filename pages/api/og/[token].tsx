@@ -14,8 +14,11 @@ export default async function handler(req: NextRequest) {
   try {
     const res = await fetch(`https://api.coingecko.com/api/v3/coins/${token.toLowerCase()}`);
     const json = await res.json();
-    const price = json?.market_data?.current_price?.usd?.toFixed(2) || 'N/A';
-    const marketCap = json?.market_data?.market_cap?.usd?.toLocaleString() || 'N/A';
+
+    if (json && json.market_data) {
+      price = json.market_data.current_price.usd?.toFixed(2) || 'N/A';
+      marketCap = json.market_data.market_cap.usd?.toLocaleString() || 'N/A';
+    }
   } catch (err) {
     console.error('Failed to fetch token data:', err);
   }
