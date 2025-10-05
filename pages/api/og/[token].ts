@@ -15,32 +15,33 @@ export default async function handler(req: NextRequest) {
   const price = json?.meta?.price?.toFixed(2) || 'N/A';
   const marketCap = json?.meta?.marketCap?.toLocaleString() || 'N/A';
 
-  const element = React.createElement(
-    'div',
-    {
-      style: {
-        background: '#1e3a8a',
-        color: 'white',
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '50px',
-        fontFamily: 'sans-serif',
+  return new ImageResponse(
+    React.createElement(
+      'div',
+      {
+        style: {
+          backgroundColor: '#1e3a8a',
+          color: 'white',
+          width: '1200px',
+          height: '630px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontFamily: 'Arial, sans-serif',
+          padding: '40px',
+        },
       },
-    },
-    [
-      React.createElement('h1', { style: { fontSize: 60 } }, token.toUpperCase()),
-      React.createElement('p', { style: { fontSize: 40 } }, `📈 $${price}`),
-      React.createElement('p', { style: { fontSize: 30 } }, `💰 Market Cap: $${marketCap}`),
-      React.createElement('p', { style: { fontSize: 24, marginTop: 40 } }, 'token-info-miniapp.vercel.app'),
-    ]
+      [
+        React.createElement('h1', { style: { fontSize: 64, margin: 0 } }, token.toUpperCase()),
+        React.createElement('p', { style: { fontSize: 48, margin: '20px 0' } }, `📈 $${price}`),
+        React.createElement('p', { style: { fontSize: 36, margin: '10px 0' } }, `💰 Market Cap: $${marketCap}`),
+        React.createElement('p', { style: { fontSize: 24, marginTop: 40 } }, 'token-info-miniapp.vercel.app'),
+      ]
+    ),
+    {
+      width: 1200,
+      height: 630,
+    }
   );
-
-  return new ImageResponse(element, {
-    width: 1200,
-    height: 630,
-  });
 }
