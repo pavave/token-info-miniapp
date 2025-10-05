@@ -1,6 +1,5 @@
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
-import React from 'react';
 
 export const config = {
   runtime: 'edge',
@@ -9,11 +8,17 @@ export const config = {
 export default async function handler(req: NextRequest) {
   const token = req.nextUrl.pathname.split('/').pop() || 'eth';
 
-  const res = await fetch(`https://token-info-miniapp.vercel.app/api/prices?token=${token}`);
-  const json = await res.json();
+  let price = 'N/A';
+  let marketCap = 'N/A';
 
-  const price = json?.meta?.price?.toFixed(2) || 'N/A';
-  const marketCap = json?.meta?.marketCap?.toLocaleString() || 'N/A';
+  try {
+    const res = await fetch(`https://token-info-miniapp.vercel.app/api/prices?token=${token}`);
+    const json = await res.json();
+    price = json?.meta?.price?.toFixed(2) || 'N/A';
+    marketCap = json?.meta?.marketCap?.toLocaleString() || 'N/A';
+  } catch (err) {
+    console.error('Failed to fetch token data:', err);
+  }
 
   return new ImageResponse(
     (
@@ -31,9 +36,9 @@ export default async function handler(req: NextRequest) {
           padding: '40px',
         }}
       >
-        <h1 style={{ fontSize: 64, margin: 0 }}>{token.toUpperCase()}</h1>
-        <p style={{ fontSize: 48, margin: '20px 0' }}>📈 ${price}</p>
-        <p style={{ fontSize: 36, margin: '10px 0' }}>💰 Market Cap: ${marketCap}</p>
+        <h1 style={{ fontSize: 64 }}>{token.toUpperCase()}</h1>
+        <p style={{ fontSize: 48 }}>📈 ${price}</p>
+        <p style={{ fontSize: 36 }}>💰 Market Cap: ${marketCap}</p>
         <p style={{ fontSize: 24, marginTop: 40 }}>token-info-miniapp.vercel.app</p>
       </div>
     ),
