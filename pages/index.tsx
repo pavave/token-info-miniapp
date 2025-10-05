@@ -18,19 +18,31 @@ export default function Home() {
     }
   }, []);
 
+  const ogImageUrl = selectedToken
+    ? `https://token-info-miniapp.vercel.app/api/og/${selectedToken}.png?v=${Date.now()}`
+    : `https://token-info-miniapp.vercel.app/screenshot.png`;
+
+  const ogUrl = selectedToken
+    ? `https://token-info-miniapp.vercel.app/?token=${selectedToken}`
+    : `https://token-info-miniapp.vercel.app`;
+
+  const ogTitle = selectedToken
+    ? `Token price ${selectedToken.toUpperCase()} now!`
+    : 'Token Info — Live crypto prices';
+
+  const ogDescription = selectedToken
+    ? `Live price and chart for ${selectedToken.toUpperCase()}`
+    : 'Track token prices and charts in real time.';
+
   return (
     <div className={darkMode ? 'dark' : 'light'}>
       <Head>
-        <title>{selectedToken ? `Token Info — ${selectedToken.toUpperCase()}` : 'Token Info'}</title>
-        <meta name="description" content="Track token prices and charts in real time." />
-        {selectedToken && (
-          <>
-            <meta property="og:title" content={`Token price ${selectedToken.toUpperCase()} now!`} />
-            <meta property="og:description" content={`Live price and chart for ${selectedToken.toUpperCase()}`} />
-            <meta property="og:image" content={`https://token-info-miniapp.vercel.app/api/og/${selectedToken}.png`} />
-            <meta property="og:url" content={`https://token-info-miniapp.vercel.app/?token=${selectedToken}`} />
-          </>
-        )}
+        <title>{ogTitle}</title>
+        <meta name="description" content={ogDescription} />
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={ogDescription} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:url" content={ogUrl} />
       </Head>
 
       {started && <Header darkMode={darkMode} setDarkMode={setDarkMode} />}
