@@ -26,14 +26,18 @@ export default function TokenPage({ token, symbol }: { token: string; symbol: st
       <Head>
         <title>{`Token Info — ${symbol}`}</title>
         <meta name="description" content={`Live price and chart for ${symbol}`} />
-        <meta property="og:title" content={`Token price ${symbol} now!`} />
-        <meta property="og:description" content={`Live price and chart for ${symbol}`} />
-        <meta property="og:image" content={`https://token-info-miniapp.vercel.app/api/og/${token}.png`} />
-        <meta property="og:url" content={`https://token-info-miniapp.vercel.app/token/${token}`} />
       </Head>
-      <main>
+      <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
         <h1>{symbol}</h1>
-        <p>Redirecting to main app...</p>
+        <p>
+          🔗 <a
+            href={`https://token-info-miniapp.vercel.app/?token=${token}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Перейти до токена в апці
+          </a>
+        </p>
       </main>
     </>
   );
