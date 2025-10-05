@@ -12,10 +12,10 @@ export default async function handler(req: NextRequest) {
   let marketCap = 'N/A';
 
   try {
-    const res = await fetch(`https://token-info-miniapp.vercel.app/api/prices?token=${token}`);
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${token.toLowerCase()}`);
     const json = await res.json();
-    price = json?.meta?.price?.toFixed(2) || 'N/A';
-    marketCap = json?.meta?.marketCap?.toLocaleString() || 'N/A';
+    const price = json?.market_data?.current_price?.usd?.toFixed(2) || 'N/A';
+    const marketCap = json?.market_data?.market_cap?.usd?.toLocaleString() || 'N/A';
   } catch (err) {
     console.error('Failed to fetch token data:', err);
   }
