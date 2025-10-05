@@ -1,1 +1,4 @@
 minikit.config.ts
+*.map
+*.svg
+*.png
