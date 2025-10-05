@@ -6,18 +6,23 @@ export const config = {
 };
 
 export default async function handler(req: NextRequest) {
-  const token = req.nextUrl.pathname.split('/').pop() || 'eth';
+  let rawToken = req.nextUrl.pathname.split('/').pop() || 'eth';
+  const token = rawToken.replace('.png', '').toLowerCase();
 
   let price = 'N/A';
   let marketCap = 'N/A';
+  let symbol = token.toUpperCase();
+  let logoUrl = '';
 
   try {
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${token.toLowerCase()}`);
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${token}`);
     const json = await res.json();
 
     if (json && json.market_data) {
       price = json.market_data.current_price.usd?.toFixed(2) || 'N/A';
       marketCap = json.market_data.market_cap.usd?.toLocaleString() || 'N/A';
+      symbol = json.symbol?.toUpperCase() || symbol;
+      logoUrl = json.image?.large || '';
     }
   } catch (err) {
     console.error('Failed to fetch token data:', err);
@@ -39,7 +44,15 @@ export default async function handler(req: NextRequest) {
           padding: '40px',
         }}
       >
-        <h1 style={{ fontSize: 64 }}>{token.toUpperCase()}</h1>
+        {logoUrl && (
+          <img
+            src={logoUrl}
+            width={100}
+            height={100}
+            style={{ borderRadius: '50%', marginBottom: 20 }}
+          />
+        )}
+        <h1 style={{ fontSize: 64 }}>{symbol}</h1>
         <p style={{ fontSize: 48 }}>📈 ${price}</p>
         <p style={{ fontSize: 36 }}>💰 Market Cap: ${marketCap}</p>
         <p style={{ fontSize: 24, marginTop: 40 }}>token-info-miniapp.vercel.app</p>
