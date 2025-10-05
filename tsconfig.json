@@ -1,14 +1,20 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "module": "esnext",
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
     "baseUrl": ".",
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "allowJs": true,
@@ -16,6 +22,12 @@
     "noEmit": true,
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
